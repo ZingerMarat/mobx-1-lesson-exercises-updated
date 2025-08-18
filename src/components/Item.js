@@ -16,7 +16,7 @@ class Item extends Component {
     return (
       <div className={item.completed ? "crossed" : null}>
         <input type="checkbox" value={item.name} onClick={this.checkItem} />
-        {item.name}
+        {item.name + " " + item.location}
       </div>
     )
   }
