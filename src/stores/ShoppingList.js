@@ -13,6 +13,8 @@ export class ShoppingList {
       length: observable,
       checkItem: action,
       addItem: action,
+      editItem: action,
+      deleteItem: action,
     })
   }
   checkItem = (name) => {
@@ -25,10 +27,13 @@ export class ShoppingList {
     const newItem = new Item(name)
     this.list.push(newItem)
   }
-  editItem = () => {
+  editItem = (name, newLocation) => {
     // your code here
+    let item = this.list.find((i) => i.name === name)
+    item.location = newLocation
   }
-  deleteItem = () => {
+  deleteItem = (name) => {
     // your code here
+    this.list = this.list.filter((i) => i.name !== name)
   }
 }
